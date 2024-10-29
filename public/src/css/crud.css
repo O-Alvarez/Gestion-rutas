@@ -1,0 +1,150 @@
+/* Archivo: styles.css */
+
+/* Estilos para los encabezados */
+h1, h2, h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Estilos generales del dashboard */
+  body {
+    background-color: #f8f9fa;
+    font-family: 'Oswald', sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Estilos para el header */
+  header {
+    background-color: #343a40;
+    padding: 1rem 0;
+  }
+  
+  .navbar-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  .navbar-nav .nav-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ffc107;
+  }
+  
+  /* Estilos para los botones */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  .btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #343a40;
+  }
+  
+  .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* Centrar botones */
+  .modal-footer .btn, .add-route-component .btn {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  /* Estilos para las tablas */
+  .table {
+    margin-top: 2rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  /* Estilos para los modales */
+  .modal-header {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .modal-footer .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  
+  /* Estilos para el footer */
+  footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 1rem 0;
+  }
+  
+  footer a {
+    color: #ffc107;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  /* Estilos adicionales para el dashboard */
+  .add-route-component {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .routes-tbl {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .modal-content {
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 1rem;
+  }

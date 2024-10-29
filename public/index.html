@@ -1,11 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/css/boostrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="src/css/main-menu.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+    rel="stylesheet">
+  <title>RUTAS_GT</title>
 </head>
+
 <body>
-    
+  <header class="mb-5 p-4">
+    <nav class="navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <h5>Administracion</h5>
+      </div>
+    </nav>
+  </header>
+  <div class="container-fluid pt-3">
+    <div class="banner">
+
+    </div>
+    <div class="title">
+      <h1>Administracion de rutas</h1>
+    </div>
+    <div class="main-menu .container-md p-5 m-4">
+      <div class="container text-center p-4">
+        <div class="row align-items-center">
+          <div class="col m-3">
+            <button type="button" class="btn btn-success">
+              <a href="src/views/routes.html">
+                <div class="card"   >
+                  <img src="src/img/routes.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h3 class="card-text">ADMINISTRACION DE RUTAS</h3>
+                  </div>
+                </div>
+              </a>
+            </button>
+          </div>
+          <div class="col m-3">
+
+            <button type="button" class="btn btn-info">
+              <a href="src/views/stations.html">
+                <div class="card"   >
+                  <img src="src/img/Estacion.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h4 class="card-text">ADMINISTRACION DE ESTACIONES</h4>
+                  </div>
+                </div>
+              </a>
+            </button>
+          </div>
+          <div class="col m-3">
+            <button type="button" class="btn btn-danger">
+              <a href="src/views/type-routes.html">
+                <div class="card"   >
+                  <img src="src/img/routes-tipes.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h3 class="card-text">ADMINISTRACION DE TIPOS DE RUTAS</h3>
+                  </div>
+                </div>
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+          <p class="mb-0">© 2024 RUTAS_GT. Todos los derechos reservados.</p>
+          <p class="mb-0">Desarrollado por <a href="#" class="text-white">Tu Nombre</a></p>
+        </div>
+      </footer>
+    </footer>
+    <script src="src/js/boostrap/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
