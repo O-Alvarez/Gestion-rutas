@@ -1,7 +1,8 @@
 // importacion y ejecucion de express
 import express from 'express'
 import config from './config'
-import rutasRoutes from './routes/rutas.routes'
+import routes from './routes'
+
 
 const app = express()
 
@@ -13,8 +14,5 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 //rutas
-app.use(rutasRoutes)
-
-
-
+app.use(routes)
 export default app

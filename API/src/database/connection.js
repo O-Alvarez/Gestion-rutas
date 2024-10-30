@@ -1,7 +1,7 @@
 import sql from 'mssql'
 import dotenv from 'dotenv'
 dotenv.config()
-
+// TOMA LAS CREDENCIALES CON LAS VARIABLES DE ENTORNO PARA LA CONEXION 
 const dbSettings = {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
