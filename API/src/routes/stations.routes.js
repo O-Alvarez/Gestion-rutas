@@ -8,7 +8,7 @@ import {
 
 
 const router = Router()
-router.get("/Stations", getStations );
+router.get("/stations", getStations );
 router.post("/new-station", postStation);
 router.delete("/del-station/:IdParada", delStation);
 router.put("/mod-station/:IdParada", putStation); 

@@ -1,18 +1,19 @@
 // importacion y ejecucion de express
-import express from 'express'
-import config from './config'
-import routes from './routes'
+import express from "express";
+import config from "./config";
+import rutas from "./routes/rutas.routes";
+import station from "./routes/stations.routes";
+import types from "./routes/types.routes";
 
-
-const app = express()
+const app = express();
 
 //configueracion del puerto
-app.set('port', config.port)
+app.set("port", config.port);
 
 //middleware
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //rutas
-app.use(routes)
-export default app
+app.use(rutas, station, types);
+export default app;

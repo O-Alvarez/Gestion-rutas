@@ -6,14 +6,14 @@ export const querys = {
     updateruta:  'EXEC ActualizarRuta @IdRuta, @Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta',
 
 //CONSULTAS PARA TABLA TIPOS 
-    getalltypes: 'EXEC ObtenerTiposRuta ',
-    postnewtype: 'EXEC InsertarTipoRuta @Nombre @Descripcion',
+    getalltypes: 'EXEC ObtenerTiposRuta',
+    postnewtype: 'EXEC InsertarTipoRuta @Nombre, @Descripcion',
     deletetype:  'EXEC EliminarTipoRuta @IdTipoRuta',
-    updatetype:  'EXEC ActualizarTipoRuta @IdTipoRuta @Nombre @Descripcion',
+    updatetype:  'EXEC ActualizarTipoRuta @IdTipoRuta, @Nombre, @Descripcion',
     
 //CONSULTAS PARA TABLA PARADAS
     getallstation:  'EXEC ObtenerParadas ',
-    postnewstation: 'EXEC InsertarParada @Nombre  @Ubicacion @TiempoEstimadoLlegada @IdRuta',
+    postnewstation: 'EXEC InsertarParada @Nombre,  @Ubicacion, @TiempoEstimadoLlegada, @IdRuta',
     deletestation:  'EXEC EliminarParada @IdParada',
-    updatestation:  'EXEC ActualizarParada @IdParada  @Nombre @Ubicacion  @TiempoEstimadoLlegada @IdRuta',
+    updatestation:  'EXEC ActualizarParada @IdParada,  @Nombre, @Ubicacion,  @TiempoEstimadoLlegada, @IdRuta',
 }

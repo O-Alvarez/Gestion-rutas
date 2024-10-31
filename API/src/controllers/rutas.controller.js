@@ -34,7 +34,7 @@ export const postRuta = async (req, res) => {
         .query(querys.postnewruta);
       return res.json({ Nombre, Descripcion, Horarios, Estado, IdTipoRuta });
     } catch (error) {
-      return res.status(500).json({ msg: "Internal server error" });
+      return res.status(500).json({ msg: "Internal server error" , error: error });
     }
   }
 };
@@ -43,14 +43,14 @@ export const deleteRuta = async (req, res) => {
   const { IdRuta } = req.params;
   console.log(IdRuta);
   if (IdRuta == null) {
-    return res.status(400).json({ msg: "Bad request: missing IdRuta parameter" });
+    return res.status(400).json({ msg: "Bad request: missing IdRuta parameter"  });
   }
   
   try {
     const pool = await getConnection();
     const result = await pool
       .request()
-      .input("IdRuta", sql.Int, parseInt(IdRuta))
+      .input("IdRuta", parseInt(IdRuta))
       .query(querys.deleteruta);
     
     if (result.rowsAffected[0] === 0) {
@@ -60,7 +60,7 @@ export const deleteRuta = async (req, res) => {
     return res.json({ msg: "Route successfully deleted", IdRuta });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ msg: "Internal server error" });
+    return res.status(500).json({ msg: "Internal server error" , error: error.message });
   }
 };
 
@@ -80,17 +80,17 @@ export const updateRuta = async (req, res) => {
       const pool = await getConnection();
       await pool
         .request()
-        .input("IdRuta", sql.Int, parseInt(IdRuta))
+        .input("IdRuta",  parseInt(IdRuta))
         .input("Nombre", Nombre)
         .input("Descripcion", Descripcion)
         .input("Horarios", Horarios)
         .input("Estado", Estado)
-        .input("IdTipoRuta", sql.Int, parseInt(IdTipoRuta))
+        .input("IdTipoRuta",  parseInt(IdTipoRuta))
         .query(querys.updateruta);
-      return res.json({ Nombre, Descripcion, Horarios, Estado, IdTipoRuta });
+      return res.json({ msg:"Ruta actualizada correctamente" ,IdRuta, Nombre, Descripcion, Horarios, Estado, IdTipoRuta });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({ msg: "Internal server error" });
+      return res.status(500).json({ msg: "Internal server error" , error: error.message });
     }
   }
 };
