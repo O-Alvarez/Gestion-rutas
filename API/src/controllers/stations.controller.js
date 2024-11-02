@@ -15,7 +15,7 @@ export const postStation = async (req, res) => {
   const { Nombre, Ubicacion, TiempoEstimadoLlegada, IdRuta } = req.body;
 
   // Validación de campos
-  if (!Nombre || !Ubicacion || !TiempoEstimadoLlegada || !IdRuta) {
+  if (Nombre == null || Ubicacion == null  || TiempoEstimadoLlegada == null  || IdRuta == null ) {
     return res.status(400).json({ msg: "Complete todos los campos" });
   }
 
@@ -37,7 +37,7 @@ export const postStation = async (req, res) => {
       .input("Ubicacion", Ubicacion)
       .input("TiempoEstimadoLlegada", tiempoEstimado)
       .input("IdRuta", idRuta)
-      .query(querys.poststation);
+      .query(querys.postnewstation);
 
     return res.json({
       msg: "Estación agregada correctamente",
