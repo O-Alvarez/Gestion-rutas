@@ -53,8 +53,9 @@
     <div class="container pt-5 mt-3 mb-5">
         <div class="add-route-component m-3 align-items-center">
             <!-- Button trigger modal -->
-            <button id="btnAgregarRuta" class="btn btn-success mb-3">Agregar Nueva Ruta</button>
-
+            <button id="btnAgregarRuta" class="btn btn-success mb-3">
+                Agregar Nueva Ruta
+            </button>
 
             <!-- Modal -->
             <!-- Modal para Agregar una Nueva Ruta -->
@@ -63,7 +64,9 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalAgregarLabel">Agregar Nueva Ruta</h5>
+                            <h5 class="modal-title" id="modalAgregarLabel">
+                                Agregar Nueva Ruta
+                            </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Cerrar"></button>
                         </div>
@@ -71,11 +74,20 @@
                             <form id="formAgregar">
                                 <div class="mb-3">
                                     <label for="nuevoNombreRuta" class="form-label">Nombre de la Ruta</label>
-                                    <input type="text" class="form-control" id="nuevoNombreRuta" required>
+                                    <input type="text" class="form-control" id="nuevoNombreRuta" required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="nuevaDescripcionRuta" class="form-label">Descripción</label>
-                                    <input type="text" class="form-control" id="nuevaDescripcionRuta" required>
+                                    <input type="text" class="form-control" id="nuevaDescripcionRuta" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nuevoEstadoRuta" class="form-label">Tipo Autobus</label>
+                                    <select class="form-select" id="nuevoTipoBus" required>
+                                        <option value="Sencillo">Sencillo</option>
+                                        <option value="Pesado">Pesado</option>
+                                        <option value="Express">Express</option>
+                                        <option value="Directo">Directo</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="nuevoEstadoRuta" class="form-label">Estado</label>
@@ -86,19 +98,20 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="nuevoHorarios" class="form-label">Horarios</label>
-                                    <input type="text" class="form-control" id="nuevoHorarios" required>
+                                    <input type="text" class="form-control" id="nuevoHorarios" required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="nuevoIdTipoRuta" class="form-label">ID Tipo de Ruta</label>
-                                    <input type="number" class="form-control" id="nuevoIdTipoRuta" required>
+                                    <input type="number" class="form-control" id="nuevoIdTipoRuta" required />
                                 </div>
-                                <button type="submit" class="btn btn-primary">Agregar Ruta</button>
+                                <button type="submit" class="btn btn-primary">
+                                    Agregar Ruta
+                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <h2>Rutas disponibles</h2>
@@ -110,10 +123,12 @@
                         <th scope="col">#CORRELATIVO</th>
                         <th scope="col">NOMBRE</th>
                         <th scope="col">DESCRIPCION</th>
+                        <th scope="col">TIPO BUS</th>
                         <th scope="col">ESTADO</th>
                         <th scope="col">HORARIO</th>
                         <th scope="col">TIPO</th>
                         <th scope="col">ACCIONES</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody id="tbl-body"></tbody>
@@ -169,6 +184,15 @@
                         <div class="mb-3">
                             <label for="descripcionRuta" class="form-label">Descripción</label>
                             <input type="text" class="form-control" id="descripcionRuta" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="TipoBus" class="form-label">TipoBus</label>
+                            <select class="form-select" id="TipoBus" required>
+                                <option value="Sencillo">Sencillo</option>
+                                <option value="Pesado">Pesado</option>
+                                <option value="Express">Express</option>
+                                <option value="Directo">Directo</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="estadoRuta" class="form-label">Estado</label>

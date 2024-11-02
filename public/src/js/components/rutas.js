@@ -1,4 +1,5 @@
-let api = "https://gestion-rutas-2.onrender.com";
+//let api = "https://gestion-rutas-2.onrender.com";
+let api = "http://localhost:3000"
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarRutas();
@@ -28,10 +29,11 @@ async function cargarRutas() {
           <td>${ruta.IdRuta}</td>
           <td>${ruta.Nombre}</td>
           <td>${ruta.Descripcion}</td>
+          <td>${ruta.TipoBus}</td>
           <td>${ruta.Estado}</td>
           <td>${ruta.Horarios}</td>
           <td>${ruta.IdTipoRuta}</td>
-          <td><button class="btn btn-warning modificar" data-id="${ruta.IdRuta}" data-nombre="${ruta.Nombre}" data-descripcion="${ruta.Descripcion}" data-estado="${ruta.Estado}" data-Horarios="${ruta.Horarios}" >Modificar</button></td>
+          <td><button class="btn btn-warning modificar" data-id="${ruta.IdRuta}" data-nombre="${ruta.Nombre}" data-descripcion="${ruta.Descripcion}" data-estado="${ruta.Estado}" data-Horarios="${ruta.Horarios}" data-TipoBus="${ruta.TipoBus}" >Modificar</button></td>
           <td><button class="btn btn-danger eliminar" data-id="${ruta.IdRuta}" data-nombre="${ruta.Nombre}" data-descripcion="${ruta.Descripcion}">Eliminar</button></td>
         </tr>`;
     });
@@ -76,6 +78,7 @@ function abrirModalModificar(btn) {
   const estadoRuta = document.getElementById("estadoRuta");
   const horariosRuta = document.getElementById("Horarios");
   const idTipoRuta = document.getElementById("IdTipoRuta");
+  const TipoBus = document.getElementById("TipoBus");
 
   if (
     nombreRuta &&
@@ -90,6 +93,7 @@ function abrirModalModificar(btn) {
     estadoRuta.value = btn.dataset.estado;
     horariosRuta.value = btn.dataset.horarios;
     idTipoRuta.value = btn.dataset.idtiporuta;
+    TipoBus.value = btn.dataset.TipoBus;
 
     // Mostrar el modal de modificación
     const modalModificar = new bootstrap.Modal(
@@ -127,6 +131,7 @@ async function modificarRuta(event) {
   const Estado = document.getElementById("estadoRuta").value;
   const Horarios = document.getElementById("Horarios").value;
   const IdTipoRuta = document.getElementById("IdTipoRuta").value;
+  const TipoBus = document.getElementById("TipoBus").value;
 
   try {
     const response = await fetch(`${api}/mod-ruta/${idSeleccionado}`, {
@@ -138,6 +143,7 @@ async function modificarRuta(event) {
         Horarios,
         Estado,
         IdTipoRuta,
+        TipoBus
       }),
     });
 
@@ -188,10 +194,12 @@ function abrirModalAgregar() {
   
     const Nombre = document.getElementById("nuevoNombreRuta").value;
     const Descripcion = document.getElementById("nuevaDescripcionRuta").value;
+    const TipoBus = document.getElementById("nuevoTipoBus").value;
     const Estado = document.getElementById("nuevoEstadoRuta").value;
     const Horarios = document.getElementById("nuevoHorarios").value;
     const IdTipoRuta = document.getElementById("nuevoIdTipoRuta").value;
   
+
     try {
       const response = await fetch(`${api}/new-ruta`, {
         method: "POST",
@@ -202,6 +210,7 @@ function abrirModalAgregar() {
           Horarios,
           Estado,
           IdTipoRuta,
+          TipoBus,
         }),
       });
   

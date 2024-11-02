@@ -12,13 +12,14 @@ export const getRutas = async (req, res) => {
 };
 
 export const postRuta = async (req, res) => {
-  const { Nombre, Descripcion, Horarios, Estado, IdTipoRuta } = req.body;
+  const { Nombre, Descripcion, Horarios, Estado, IdTipoRuta, TipoBus } = req.body;
   if (
     Nombre == null ||
     Descripcion == null ||
     Horarios == null ||
     Estado == null ||
-    IdTipoRuta == null
+    IdTipoRuta == null || 
+    TipoBus == null
   ) {
     return res.status(400).json({ msg: "Bad request fill all fields " });
   } else {
@@ -31,8 +32,9 @@ export const postRuta = async (req, res) => {
         .input("Horarios", Horarios)
         .input("Estado", Estado)
         .input("IdTipoRuta", IdTipoRuta)
+        .input("TipoBus" ,  TipoBus)
         .query(querys.postnewruta);
-      return res.json({ Nombre, Descripcion, Horarios, Estado, IdTipoRuta });
+      return res.json({ Nombre, Descripcion, Horarios, Estado, IdTipoRuta ,TipoBus });
     } catch (error) {
       return res.status(500).json({ msg: "Internal server error" , error: error });
     }
@@ -64,13 +66,14 @@ export const deleteRuta = async (req, res) => {
 
 export const updateRuta = async (req, res) => {
   const { IdRuta } = req.params;
-  const { Nombre, Descripcion, Horarios, Estado, IdTipoRuta } = req.body;
+  const { Nombre, Descripcion, Horarios, Estado, IdTipoRuta , TipoBus } = req.body;
   if (
     Nombre == null ||
     Descripcion == null ||
     Horarios == null ||
     Estado == null ||
-    IdTipoRuta == null
+    IdTipoRuta == null ||
+    TipoBus == null
   ) {
     return res.status(400).json({ msg: "Bad request fill all fields " });
   } else {
@@ -84,8 +87,9 @@ export const updateRuta = async (req, res) => {
         .input("Horarios", Horarios)
         .input("Estado", Estado)
         .input("IdTipoRuta",  parseInt(IdTipoRuta))
+        .input ("TipoBus", TipoBus)
         .query(querys.updateruta);
-      return res.json({ msg:"Ruta actualizada correctamente" ,IdRuta, Nombre, Descripcion, Horarios, Estado, IdTipoRuta });
+      return res.json({ msg:"Ruta actualizada correctamente" ,IdRuta, Nombre, Descripcion, Horarios, Estado, IdTipoRuta ,TipoBus});
     } catch (error) {
       return res.status(500).json({ msg: "Internal server error" , error: error.message });
     }

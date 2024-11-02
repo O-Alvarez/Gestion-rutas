@@ -1,9 +1,9 @@
 export const querys = {
 //CONSULTAS PARA TABLA RUTAS    
     getallrutas: 'EXEC ObtenerRutas',
-    postnewruta: 'EXEC InsertarRuta @Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta',
+    postnewruta: 'EXEC InsertarRuta @Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta , @TipoBus',
     deleteruta:  'EXEC EliminarRuta @IdRuta',
-    updateruta:  'EXEC ActualizarRuta @IdRuta, @Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta',
+    updateruta:  'EXEC ActualizarRuta @IdRuta, @Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta , @TipoBus',
 
 //CONSULTAS PARA TABLA TIPOS 
     getalltypes: 'EXEC ObtenerTiposRuta',

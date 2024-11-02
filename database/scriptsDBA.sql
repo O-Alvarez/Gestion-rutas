@@ -26,6 +26,15 @@ CREATE TABLE Ruta (
 );
 GO
 
+-----modificacion de examen
+ALTER TABLE Ruta
+ADD TipoBus VARCHAR(50) NULL;
+GO
+
+---------.
+
+
+
 -- Tabla: Parada de la Ruta
 CREATE TABLE Parada (
     IdParada INT PRIMARY KEY IDENTITY(1,1),
