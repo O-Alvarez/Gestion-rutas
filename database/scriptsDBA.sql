@@ -100,11 +100,12 @@ CREATE PROCEDURE InsertarRuta
     @Descripcion NVARCHAR(255) = NULL,
     @Horarios NVARCHAR(255) = NULL,
     @Estado NVARCHAR(20),
-    @IdTipoRuta INT
+    @IdTipoRuta INT,
+    @TipoBus VARCHAR(50) = NULL  -- Nuevo parámetro
 AS
 BEGIN
-    INSERT INTO Ruta (Nombre, Descripcion, Horarios, Estado, IdTipoRuta)
-    VALUES (@Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta);
+    INSERT INTO Ruta (Nombre, Descripcion, Horarios, Estado, IdTipoRuta, TipoBus)
+    VALUES (@Nombre, @Descripcion, @Horarios, @Estado, @IdTipoRuta, @TipoBus);
 END
 GO
 
@@ -123,11 +124,17 @@ CREATE PROCEDURE ActualizarRuta
     @Descripcion NVARCHAR(255) = NULL,
     @Horarios NVARCHAR(255) = NULL,
     @Estado NVARCHAR(20),
-    @IdTipoRuta INT
+    @IdTipoRuta INT,
+    @TipoBus VARCHAR(50) = NULL  -- Nuevo parámetro
 AS
 BEGIN
     UPDATE Ruta
-    SET Nombre = @Nombre, Descripcion = @Descripcion, Horarios = @Horarios, Estado = @Estado, IdTipoRuta = @IdTipoRuta
+    SET Nombre = @Nombre,
+        Descripcion = @Descripcion,
+        Horarios = @Horarios,
+        Estado = @Estado,
+        IdTipoRuta = @IdTipoRuta,
+        TipoBus = @TipoBus  -- Actualización del nuevo campo
     WHERE IdRuta = @IdRuta;
 END
 GO
