@@ -13,37 +13,45 @@ export const getStations = async (req, res) => {
 
 export const postStation = async (req, res) => {
   const { Nombre, Ubicacion, TiempoEstimadoLlegada, IdRuta } = req.body;
-  if (
-    Nombre == null ||
-    Ubicacion == null ||
-    TiempoEstimadoLlegada == null ||
-    IdRuta == null
-  ) {
+
+  // Validación de campos
+  if (!Nombre || !Ubicacion || !TiempoEstimadoLlegada || !IdRuta) {
     return res.status(400).json({ msg: "Complete todos los campos" });
-  } else {
-    try {
-      const pool = await getConnection();
-      await pool
-        .request()
-        .input("Nombre", Nombre)
-        .input("Ubicacion", Ubicacion)
-        .input("TiempoEstimadoLlegada", parseInt(TiempoEstimadoLlegada))
-        .input("IdRuta", parseInt(IdRuta))
-        .query(querys.poststation);
-      return res.json({
-        msg: "Estacion agregada correctamente",
-        Nombre,
-        Ubicacion,
-        TiempoEstimadoLlegada,
-        IdRuta,
-      });
-    } catch (error) {
-      return res
-        .status(500)
-        .json({ msg: "Internal server error", error: error.message });
+  }
+
+  try {
+    const pool = await getConnection();
+
+    // Validar que TiempoEstimadoLlegada y IdRuta sean números
+    const tiempoEstimado = parseInt(TiempoEstimadoLlegada);
+    const idRuta = parseInt(IdRuta);
+
+    if (isNaN(tiempoEstimado) || isNaN(idRuta)) {
+      return res.status(400).json({ msg: "TiempoEstimadoLlegada e IdRuta deben ser números" });
     }
+
+    // Realizar la consulta para insertar la nueva estación
+    await pool
+      .request()
+      .input("Nombre", Nombre)
+      .input("Ubicacion", Ubicacion)
+      .input("TiempoEstimadoLlegada", tiempoEstimado)
+      .input("IdRuta", idRuta)
+      .query(querys.poststation);
+
+    return res.json({
+      msg: "Estación agregada correctamente",
+      Nombre,
+      Ubicacion,
+      TiempoEstimadoLlegada: tiempoEstimado,
+      IdRuta: idRuta,
+    });
+  } catch (error) {
+    console.error("Error al agregar la estación:", error); // Log de error para depuración
+    return res.status(500).json({ msg: "Internal server error", error: error.message });
   }
 };
+
 
 export const delStation = async (req, res) => {
   const { IdParada } = req.params;

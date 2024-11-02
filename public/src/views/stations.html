@@ -4,31 +4,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../src/css/boostrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../src/css/crud.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
-        rel="stylesheet">
-    <title>RUTAS_GT</title>
+    <link rel="stylesheet" href="../css/boostrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/crud.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
+    <title>Administrar Estaciones de Autobús</title>
 </head>
 
 <body>
     <header class="mb-5">
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.html">ADMINISTRAR ESTACIONES</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-                    aria-label="Toggle navigation">
+                <a class="navbar-brand" href="../../index.html">ADMINISTRAR ESTACIONES DE AUTOBÚS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-                    aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -39,7 +34,7 @@
                                 <a class="nav-link active" aria-current="page" href="routes.html">Rutas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="type-routes.html">Tipos de ruta</a>
+                                <a class="nav-link active" aria-current="page" href="type-routes.html">Tipos de Rutas</a>
                             </li>
                         </ul>
                     </div>
@@ -49,140 +44,102 @@
     </header>
 
     <div class="container pt-5 mt-3 mb-5">
-        <div class="add-route-component m-3 align-items-center">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Agregar Estacion de bus
-            </button>
+        <div class="add-station-component m-3 align-items-center">
+            <button id="btnAgregarEstacion" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarEstacion">Agregar Nueva Estación</button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal fade" id="modalAgregarEstacion" tabindex="-1" aria-labelledby="modalAgregarEstacionLabel" aria-hidden="true">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar nueva estacion</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title" id="modalAgregarEstacionLabel">Agregar Nueva Estación</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="input-group p-3">
-                                <span class="input-group-text">First and last name</span>
-                                <input type="text" aria-label="First name" class="form-control">
-                                <input type="text" aria-label="Last name" class="form-control">
-                            </div>
-                            <div class="input-group p-3">
-                                <span class="input-group-text">First and last name</span>
-                                <input type="text" aria-label="First name" class="form-control">
-                                <input type="text" aria-label="Last name" class="form-control">
-                            </div>
-                            <select class="form-select p-3" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <form id="formAgregarEstacion">
+                                <div class="mb-3">
+                                    <label for="nuevoNombreEstacion" class="form-label">Nombre de la Estación</label>
+                                    <input type="text" class="form-control" id="nuevoNombreEstacion" required>
+                                    <label for="nuevaUbicacionEstacion" class="form-label">Ubicación de la Estación</label>
+                                    <input type="text" class="form-control" id="nuevaUbicacionEstacion" required>
+                                    <label for="nuevoTiempoEstimadoLlegada" class="form-label">nuevoTiempoEstimadoLlegada (minutos)</label>
+                                    <input type="number" class="form-control" id="nuevoTiempoEstimadoLlegada" required>
+                                    <label for="nuevoIdRuta" class="form-label">codigo de ruta asignada</label>
+                                    <input type="number" class="form-control" id="nuevoIdRuta" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Agregar Estación</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h2>
-            Rutas disponibles
-        </h2>
+        <h2>Estaciones Disponibles</h2>
 
-        <div class="routes-tbl">
-            <table class="table">
+        <div class="stations-tbl">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#ID</th>
-                        <th scope="col">CAMPO</th>
-                        <th scope="col">CAMPO</th>
-                        <th scope="col">OPCIONES</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">UBICACIÓN</th>
+                        <th scope="col">ACCIONES</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
-                                data-bs-target="#ModRoute">Modificar</button>
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                data-bs-target="#DelRoute">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="tbl-body-estaciones"></tbody>
             </table>
         </div>
     </div>
 
-    <!-- SECCION DE MODALES PARA ELIMINACION Y MODIFICACION-->
-
-    <div class="modal fade" id="ModRoute" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="ModRouteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal fade" id="modalEliminarEstacion" tabindex="-1" aria-labelledby="modalEliminarEstacionLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModRouteLabel">Modificacion</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="modalEliminarEstacionLabel">Eliminar Estación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group p-3">
-                        <span class="input-group-text">First and last name</span>
-                        <input type="text" aria-label="First name" class="form-control">
-                        <input type="text" aria-label="Last name" class="form-control">
-                    </div>
-                    <div class="input-group p-3">
-                        <span class="input-group-text">First and last name</span>
-                        <input type="text" aria-label="First name" class="form-control">
-                        <input type="text" aria-label="Last name" class="form-control">
-                    </div>
-                    <select class="form-select p-3" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline-success">Guardar Cambios</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade " id="DelRoute" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="DelRouteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="DelRouteLabel">Eliminacion</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Está seguro que desea eliminar el Registro?
+                    <p>¿Estás seguro de que deseas eliminar la siguiente estación?</p>
+                    <p><strong>Nombre:</strong> <span class="estacion-nombre"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                    <button type="button" class="btn btn-danger" id="confirmarEliminarEstacion">Eliminar</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="modal fade" id="modalModificarEstacion" tabindex="-1" aria-labelledby="modalModificarEstacionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalModificarEstacionLabel">Modificar Estación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formModificarEstacion">
+                        <div class="mb-3">
+                            <label for="nombreEstacion" class="form-label">Nombre de la Estación</label>
+                            <input type="text" class="form-control" id="nombreEstacion" required />
+                            <label for="ubicacionEstacion" class="form-label">Ubicación de la Estación</label>
+                            <input type="text" class="form-control" id="ubicacionEstacion" required />
+                            <label for="TiempoEstimadoLlegada" class="form-label">Tiempo Estimado de Llegada</label>
+                            <input type="text" class="form-control" id="TiempoEstimadoLlegada" required />
+                            <label for="IdRuta" class="form-label">Ruta asignada</label>
+                            <input type="text" class="form-control" id="IdRuta" required />
 
-    <footer>
-        <footer class="bg-dark text-white text-center py-3 mt-auto">
-            <div class="container">
-                <h4 class="mb-0">© 2024 RUTAS_GT. Todos los derechos reservados.</h4>
-                <h5 class="mb-0">Desarrollado por <a href="#" class="text-white">Oscar Alvarez</a></h5>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Modificar Estación</button>
+                    </form>
+                </div>
             </div>
-        </footer>
-    </footer>
-    <script src="../../src/js/boostrap/bootstrap.bundle.min.js"></script>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/boostrap/bootstrap.min.js"></script>
+    <script src="../js/components/estaciones.js"></script>
 </body>
+
+</html>

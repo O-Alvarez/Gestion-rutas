@@ -4,31 +4,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../src/css/boostrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../src/css/crud.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
-        rel="stylesheet">
-    <title>RUTAS_GT</title>
+    <link rel="stylesheet" href="../css/boostrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/crud.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
+    <title>Administrar Tipos de Ruta</title>
 </head>
 
 <body>
     <header class="mb-5">
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.html">ADMINISTRAR TIPOS DE RUTAS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-                    aria-label="Toggle navigation">
+                <a class="navbar-brand" href="../../index.html">ADMINISTRAR TIPOS DE RUTA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-                    aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -36,7 +31,7 @@
                                 <a class="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="routes.html">Rutas</a>
+                                <a class="nav-link active" aria-current="page" href="rutas.html">Rutas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="stations.html">Estaciones</a>
@@ -49,135 +44,92 @@
     </header>
 
     <div class="container pt-5 mt-3 mb-5">
-        <div class="add-route-component m-3 align-items-center">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Agregar nuevo tipo de ruta
-            </button>
+        <div class="add-type-route-component m-3 align-items-center">
+            <button id="btnAgregarTipoRuta" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarTipoRuta">Agregar Nuevo Tipo de Ruta</button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal fade" id="modalAgregarTipoRuta" tabindex="-1" aria-labelledby="modalAgregarTipoRutaLabel" aria-hidden="true">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar nuevo tipo de ruta</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title" id="modalAgregarTipoRutaLabel">Agregar Nuevo Tipo de Ruta</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="input-group p-3">
-                                <span class="input-group-text">NOMBRE DEL TIPO:</span>
-                                <input type="text" aria-label="New-name" class="form-control" id="newName">
-                            </div>
-                            <div class="input-group p-3">
-                                <span class="input-group-text">DESCRIPCION:</span>
-                                <input type="text" aria-label="New-description" class="form-control" id="newDescription">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
-                            <button type="button"  class="btn btn-primary" ID="saveNewRoute">GUARDAR</button>
+                            <form id="formAgregarTipoRuta">
+                                <div class="mb-3">
+                                    <label for="nuevoNombreTipoRuta" class="form-label">Nombre del Tipo de Ruta</label>
+                                    <input type="text" class="form-control" id="nuevoNombreTipoRuta" required>
+                                    <label for="nuevaDescripcionTipoRuta" class="form-label">Nombre del Tipo de Ruta</label>
+                                    <input type="text" class="form-control" id="nuevaDescripcionTipoRuta" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Agregar Tipo de Ruta</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h2>
-            Rutas disponibles
-        </h2>
+        <h2>Tipos de Rutas Disponibles</h2>
 
-
-  <!-- AQUI INTERACTUA LA API PARA TRAER TODOS LOS TIPOS -->
-        <div class="routes-tbl">
-            <table class="table">
+        <div class="type-routes-tbl">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">NOMBRE</th>
-                        <th scope="col">DESCRIPCION</th>
                         <th scope="col">ACCIONES</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td colspan="2">PARADAS CONTINUAS</td>
-                        <td>
-                            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
-                                data-bs-target="#ModRoute">Modificar</button>
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                data-bs-target="#DelRoute">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="tbl-body-tipos"></tbody>
             </table>
         </div>
     </div>
 
-    <!-- SECCION DE MODALES PARA ELIMINACION Y MODIFICACION-->
-
-    <div class="modal fade" id="ModRoute" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="ModRouteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal fade" id="modalEliminarTipoRuta" tabindex="-1" aria-labelledby="modalEliminarTipoRutaLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModRouteLabel">Modificacion</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="modalEliminarTipoRutaLabel">Eliminar Tipo de Ruta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group p-3">
-                        <span class="input-group-text">First and last name</span>
-                        <input type="text" aria-label="First name" class="form-control">
-                        <input type="text" aria-label="Last name" class="form-control">
-                    </div>
-                    <div class="input-group p-3">
-                        <span class="input-group-text">First and last name</span>
-                        <input type="text" aria-label="First name" class="form-control">
-                        <input type="text" aria-label="Last name" class="form-control">
-                    </div>
-                    <select class="form-select p-3" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-outline-success" id="saveMod">Guardar Cambios</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade " id="DelRoute" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="DelRouteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="DelRouteLabel">Eliminacion</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Está seguro que desea eliminar el Registro?
+                    <p>¿Estás seguro de que deseas eliminar el siguiente tipo de ruta?</p>
+                    <p><strong>Nombre:</strong> <span class="tipo-ruta-nombre"></span></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                    <button type="button" class="btn btn-danger" id="confirmarEliminarTipoRuta">Eliminar</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <footer>
-        <footer class="bg-dark text-white text-center py-3 mt-auto">
-            <div class="container">
-                <h4 class="mb-0">© 2024 RUTAS_GT. Todos los derechos reservados.</h4>
-                <h5 class="mb-0">Desarrollado por <a href="#" class="text-white">Oscar Alvarez</a></h5>
+    <div class="modal fade" id="modalModificarTipoRuta" tabindex="-1" aria-labelledby="modalModificarTipoRutaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalModificarTipoRutaLabel">Modificar Tipo de Ruta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formModificarTipoRuta">
+                        <div class="mb-3">
+                            <label for="nombreTipoRuta" class="form-label">Nombre del Tipo de Ruta</label>
+                            <input type="text" class="form-control" id="nombreTipoRuta" required />
+                            <label for="descripcionTipoRuta" class="form-label">descripcionTipoRuta</label>
+                            <input type="text" class="form-control" id="descripcionTipoRuta" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Modificar Tipo de Ruta</button>
+                    </form>
+                </div>
             </div>
-        </footer>
-    </footer>
-    <script src="../../src/js/boostrap/bootstrap.bundle.min.js"></script>
-    <script src="../../src/js/components/type-routes.js"></script>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/boostrap/bootstrap.min.js"></script>
+    <script src="../js/components/tipos_rutas.js"></script>
 </body>
+
+</html>

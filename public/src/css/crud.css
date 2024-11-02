@@ -148,3 +148,36 @@ h1, h2, h3 {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     padding: 1rem;
   }
+  /* Estilos generales para el modal */
+.modal-header {
+  background-color: #343a40;
+  color: #ffffff;
+}
+.modal-body {
+  padding: 20px;
+}
+.btn-primary, .btn-close {
+  background-color: #007bff;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para los mensajes */
+#alertaMensaje {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+}
+#alertaMensaje.success {
+  color: #28a745;
+}
+#alertaMensaje.error {
+  color: #dc3545;
+}
+#alertaMensaje.warning {
+  color: #ffc107;
+}
