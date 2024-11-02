@@ -1,5 +1,5 @@
-//let api = "https://gestion-rutas-2.onrender.com";
-let api = "http://localhost:3000"
+let api = "https://gestion-rutas-2.onrender.com";
+//let api = "http://localhost:3000"
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarRutas();
