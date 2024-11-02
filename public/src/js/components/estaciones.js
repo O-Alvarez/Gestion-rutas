@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000";
+const apiUrl = "https://gestion-rutas-2.onrender.com";
 
 document.addEventListener("DOMContentLoaded", () => {
     getStations();

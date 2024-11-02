@@ -41,7 +41,6 @@ export const postRuta = async (req, res) => {
 
 export const deleteRuta = async (req, res) => {
   const { IdRuta } = req.params;
-  console.log(IdRuta);
   if (IdRuta == null) {
     return res.status(400).json({ msg: "Bad request: missing IdRuta parameter"  });
   }
@@ -59,7 +58,6 @@ export const deleteRuta = async (req, res) => {
 
     return res.json({ msg: "Route successfully deleted", IdRuta });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ msg: "Internal server error" , error: error.message });
   }
 };
@@ -89,7 +87,6 @@ export const updateRuta = async (req, res) => {
         .query(querys.updateruta);
       return res.json({ msg:"Ruta actualizada correctamente" ,IdRuta, Nombre, Descripcion, Horarios, Estado, IdTipoRuta });
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ msg: "Internal server error" , error: error.message });
     }
   }
